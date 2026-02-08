@@ -22,6 +22,25 @@ interface JournalEntry {
   journalText: string;
 }
 
+const OVERWATCH_PRIORITIES = [
+  {
+    title: 'Live Telemetry Connectors',
+    description: 'Ingest health signals from infrastructure and model endpoints for continuous SAP stage tracking.',
+  },
+  {
+    title: 'Predictive Bifurcation Alerts',
+    description: 'Forecast stage shifts and warn before threshold failures cascade across dependent systems.',
+  },
+  {
+    title: 'Guardrailed Auto-Intervention',
+    description: 'Allow safe, policy-scoped interventions with human approval gates for critical actions.',
+  },
+  {
+    title: 'Response Quality Regulation',
+    description: 'Run analyzers for hallucination, sycophancy, fake empathy, and personal assumption drift before release.',
+  },
+];
+
 export default function Home() {
   const [step, setStep] = useState<Step>('welcome');
   const [showStageIndex, setShowStageIndex] = useState(false);
@@ -183,6 +202,21 @@ export default function Home() {
                       <li>• The cycle repeats infinitely</li>
                     </ul>
                   </div>
+                </div>
+
+                <div className="mb-8 rounded-xl border border-luminark-border bg-luminark-bg/40 p-6 text-left">
+                  <h3 className="mb-3 text-xl font-semibold text-luminark-accent">Overwatch: What&apos;s Next</h3>
+                  <p className="mb-4 text-sm text-luminark-muted">
+                    Build LUMINARK into a full regulatory orchestration layer by shipping these capabilities in sequence.
+                  </p>
+                  <ul className="space-y-3">
+                    {OVERWATCH_PRIORITIES.map((item) => (
+                      <li key={item.title} className="rounded-lg border border-luminark-border bg-luminark-card/50 p-3">
+                        <p className="text-sm font-semibold text-luminark-text">{item.title}</p>
+                        <p className="text-xs text-luminark-muted">{item.description}</p>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
                 <button
