@@ -1,0 +1,254 @@
+{
+  "library_id": "luminark_systems_stages_v1",
+  "scope": "non-human systems (org/finance/engineering/infra/software)",
+  "notes": "Stage descriptions are substrate-neutral and avoid consciousness / metaphysical framing. Stage 5 retained as 'Threshold'. Stage 8 reflects self-optimization with explicit rigidity risk.",
+  "stages": [
+    {
+      "stage": 0,
+      "name": "Null State",
+      "tagline": "No active structure; potential without load.",
+      "definition": "A system with minimal active configuration or identity. Inputs may exist, but there is no stabilized operating pattern yet.",
+      "common_signals": [
+        "No stable output",
+        "No operational cadence",
+        "High optionality, low commitment"
+      ],
+      "risks": [
+        "Indefinite waiting / never initiating",
+        "Misreading noise as readiness"
+      ],
+      "best_moves": [
+        "Define the boundary and purpose (what the system is for)",
+        "Establish a minimal operating loop (measure → act → log)"
+      ],
+      "metrics_examples": [
+        "No baseline KPI exists yet",
+        "No repeatable process exists yet"
+      ]
+    },
+    {
+      "stage": 1,
+      "name": "Signal",
+      "tagline": "First detectable activity; weak but real.",
+      "definition": "Early activation: a signal appears (demand, opportunity, fault pattern, measurable deviation). The system is starting to 'register' as a system.",
+      "common_signals": [
+        "First customers / first transactions / first errors",
+        "Early sensor readings become consistent",
+        "A repeatable trigger exists"
+      ],
+      "risks": [
+        "Overbuilding too early",
+        "Treating early signal as product-market fit or proof"
+      ],
+      "best_moves": [
+        "Confirm the signal with repeat measurements",
+        "Keep changes reversible"
+      ],
+      "metrics_examples": [
+        "First-week retention signal",
+        "First stable calibration curve",
+        "First recurring revenue"
+      ]
+    },
+    {
+      "stage": 2,
+      "name": "Polarity",
+      "tagline": "Two competing pulls; unstable tradeoffs appear.",
+      "definition": "The system enters a push-pull state: speed vs safety, growth vs stability, precision vs throughput, exploration vs exploitation.",
+      "common_signals": [
+        "Conflicting KPIs (e.g., growth up, quality down)",
+        "Teams or components optimizing different targets",
+        "Oscillation: fixes create counter-problems"
+      ],
+      "risks": [
+        "Ping-pong decision making",
+        "Local optimizations harming global performance"
+      ],
+      "best_moves": [
+        "Select the primary constraint (what cannot be violated)",
+        "Define priority rules for tradeoffs"
+      ],
+      "metrics_examples": [
+        "Error rate vs latency tension",
+        "Compliance vs profit tension",
+        "Stability vs expansion tension"
+      ]
+    },
+    {
+      "stage": 3,
+      "name": "Commit",
+      "tagline": "Identity locks; the operating model becomes real.",
+      "definition": "The system commits to a form: architecture, operating model, product category, policy regime, or calibration standard. This is where trajectory becomes predictable.",
+      "common_signals": [
+        "A repeatable operating cycle exists",
+        "Roles/interfaces stabilize",
+        "A recognizable 'way we do things' forms"
+      ],
+      "risks": [
+        "Committing to the wrong architecture/market too early",
+        "Hard-coding assumptions that will later break"
+      ],
+      "best_moves": [
+        "Document the operating assumptions explicitly",
+        "Build observability: logging, alerts, traceability"
+      ],
+      "metrics_examples": [
+        "Stable process cycle time",
+        "Versioned standards / SOPs",
+        "Consistent output profile"
+      ]
+    },
+    {
+      "stage": 4,
+      "name": "Foundation",
+      "tagline": "Stability and standards; repeatability is achieved.",
+      "definition": "The system becomes dependable. Standards, controls, and routines are in place. Outputs become predictable within known tolerances.",
+      "common_signals": [
+        "Process and quality controls implemented",
+        "Baseline performance becomes consistent",
+        "Training/onboarding becomes possible"
+      ],
+      "risks": [
+        "Complacency and under-innovation",
+        "Over-standardization too early"
+      ],
+      "best_moves": [
+        "Harden reliability without killing adaptability",
+        "Establish controlled change management"
+      ],
+      "metrics_examples": [
+        "Uptime and defect rates stabilize",
+        "Audit readiness improves",
+        "Variance decreases"
+      ]
+    },
+    {
+      "stage": 5,
+      "name": "Threshold",
+      "tagline": "Irreversible decision point; scale, pivot, or constrain.",
+      "definition": "A critical inflection point where the system must choose: expand capacity, change model, or deliberately limit scope. Past this point, choices become expensive to undo.",
+      "common_signals": [
+        "Demand exceeds capacity OR risk exceeds tolerance",
+        "Existing controls no longer fit reality",
+        "A step-change decision is forced"
+      ],
+      "risks": [
+        "Delaying decisions until forced by failure",
+        "Choosing scale without stability, or stability without relevance"
+      ],
+      "best_moves": [
+        "Decide the constraint (what must be protected)",
+        "Commit resources to the chosen direction and remove ambiguity"
+      ],
+      "metrics_examples": [
+        "Capacity ceiling reached",
+        "Runway vs growth curve tension",
+        "Stress tests begin failing"
+      ]
+    },
+    {
+      "stage": 6,
+      "name": "Throughput",
+      "tagline": "High performance; efficient flow under load.",
+      "definition": "The system runs strongly: high output, high efficiency, good coordination. This is peak operational flow where scaling feels natural and performance looks impressive.",
+      "common_signals": [
+        "Strong unit economics / strong efficiency ratios",
+        "Low friction operations",
+        "Smooth scaling within known bounds"
+      ],
+      "risks": [
+        "Mistaking peak conditions for permanent conditions",
+        "Neglecting edge cases and weak signals"
+      ],
+      "best_moves": [
+        "Prepare for saturation and disruption early",
+        "Invest in resilience and next-cycle R&D"
+      ],
+      "metrics_examples": [
+        "Best-ever margins",
+        "Best-ever reliability",
+        "High throughput / low waste"
+      ]
+    },
+    {
+      "stage": 7,
+      "name": "Variance",
+      "tagline": "Stress-testing reality; anomalies rise to the surface.",
+      "definition": "Reality becomes less cooperative. Variance increases (market shifts, component drift, new competitors, regulation, fatigue in processes). The system must interpret signals correctly.",
+      "common_signals": [
+        "Unexpected failures or misses",
+        "Forecast accuracy drops",
+        "Previously rare edge cases become common"
+      ],
+      "risks": [
+        "Denial ('it's temporary')",
+        "Overreaction (thrashing changes without diagnosis)"
+      ],
+      "best_moves": [
+        "Root-cause analysis, not blame",
+        "Increase sensing/monitoring resolution",
+        "Run controlled experiments to regain clarity"
+      ],
+      "metrics_examples": [
+        "Rising churn / volatility",
+        "Spike in incidents",
+        "Calibration drift increases"
+      ]
+    },
+    {
+      "stage": 8,
+      "name": "Adaptive Optimization (Rigidity Risk)",
+      "tagline": "Self-improving—but may harden into a brittle loop.",
+      "definition": "The system aggressively optimizes itself: automation, policies, consolidation, standardization, efficiency-maxing. This can be excellent—until optimization becomes over-constraint. The key danger is rigidity: the system performs brilliantly in a narrowing set of conditions.",
+      "common_signals": [
+        "Optimization layers added (automation, rules, tight controls)",
+        "Strong performance but reduced flexibility",
+        "Resistance to change increases (process/politics/technical debt)"
+      ],
+      "risks": [
+        "Brittleness (breaks under novel conditions)",
+        "Lock-in to outdated assumptions",
+        "Rigidity spiral: tighter controls → less learning → more surprises"
+      ],
+      "best_moves": [
+        "Add 'flex capacity' (redundancy, optionality, escape hatches)",
+        "Keep a sandbox for adaptation (pilot lanes, skunkworks, exception handling)",
+        "Monitor for brittleness indicators (variance sensitivity)"
+      ],
+      "metrics_examples": [
+        "Efficiency up while innovation down",
+        "Policy exceptions rise",
+        "Incident impact grows despite fewer incidents"
+      ]
+    },
+    {
+      "stage": 9,
+      "name": "Apex",
+      "tagline": "Maximum expression; transition becomes necessary.",
+      "definition": "The system reaches maximum maturity/expression in its current form. At Apex, continuation requires transformation (new model) or planned winding down. Staying here indefinitely is structurally difficult.",
+      "common_signals": [
+        "Diminishing returns",
+        "Saturation (market/capacity/complexity ceiling)",
+        "Legacy planning becomes critical"
+      ],
+      "risks": [
+        "Clinging to the current form until forced collapse",
+        "Failing to transfer knowledge before transition"
+      ],
+      "best_moves": [
+        "Plan the next cycle intentionally (spin-offs, new architecture, diversification)",
+        "Document and transfer institutional knowledge",
+        "Design graceful decommission paths"
+      ],
+      "metrics_examples": [
+        "Plateaued growth",
+        "Peak complexity index",
+        "Rising maintenance cost"
+      ]
+    }
+  ],
+  "return_to_zero": {
+    "name": "Reset / Reversion",
+    "definition": "After Apex, the system either resets (restructures), reverts (shrinks), or dissolves (ends). In systems terms: reorg, bankruptcy, migration, refactor, decommission, regime change, or re-baselining."
+  }
+}
