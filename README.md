@@ -1,280 +1,73 @@
-# Luminark v2.0 - System Assessment Application
+# LUMINARK v2 — Mixed Self-Reflection UI and Telemetry Prototype
 
-![Luminark](https://img.shields.io/badge/version-2.0.0-blue)
-![Next.js](https://img.shields.io/badge/Next.js-14.0-black)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)
+## Conceptual provenance
 
-**The Antikythera Engine for Self-Understanding**
+The project owner states that the underlying LUMINARK / 0-9-0 concepts and product ideas originated with him. AI systems generated the implementation code and suggested technical mechanisms. NSDT and the Container Rule are AI-added supporting mechanisms within the owner's framework, not independent conceptual foundations. This records the owner's account and is not a legal determination of rights or inventorship.
 
-Luminark is a sophisticated self-assessment application that helps users understand their current position within 10 archetypal stages of personal transformation through a bio-rhythmic vector analysis system.
+## Important repository distinction
 
-## ✨ Features
+This repository currently contains two separate implementations that are not integrated with one another:
 
-### Core Assessment System
-- **5 Vector Analysis**: Complexity, Stability, Tension, Adaptability, Coherence
-- **10 Archetypal Stages**: From Plenara (The Void) to Release (Transparency)
-- **Time Orientation**: Past-focused vs Future-focused assessment calibration
-- **Multi-Domain Selection**: Choose multiple life focus areas simultaneously
-- **Comprehensive Stage Descriptions**: Detailed guidance for each stage
+1. **Next.js self-reflection application** — a five-slider personal reflection UI with stage descriptions and journaling. Its current stage calculation is a simple rounded average of five user-entered values. Journal entries are saved in browser localStorage.
+2. **Python telemetry API and core** — a separate three-input rule/centroid classifier for severity, turbulence, and adaptability. It has nine operational labels (NOMINAL through TERMINAL), a fixed trap-score formula, weighted consensus arithmetic, static signature matching, and alert thresholds. It does not currently implement the same 0–9 frontend stage calculation or an explicit Stage 0 / return-to-zero cycle.
 
-### Enhanced User Experience
-- **Interactive Info Tooltips**: Contextual information throughout the app
-- **Stage Index Reference**: Complete guide to all 10 archetypal stages
-- **Detailed Reflections**: Expanded text fields for deeper personal insights
-- **Smooth Animations**: Framer Motion powered transitions
+Do not describe the frontend as using the Python telemetry engine. No integration between the two is implemented in the current code.
 
-### Journal & Progress Tracking
-- **Weekly/Monthly Journaling**: Track your journey through the stages
-- **Progress Dashboard**: Visual charts showing stage progression over time
-- **Vector Radar Chart**: Current assessment displayed in radar format
-- **Timeline View**: Historical journal entries with full context
-- **LocalStorage Persistence**: All data saved locally in your browser
+## Frontend: self-reflection application
 
-### Visual Design
-- **Dark Theme**: Sophisticated gradient backgrounds
-- **Luminark Color Palette**: Purple/blue accent colors
-- **Responsive Layout**: Works on mobile, tablet, and desktop
-- **Custom Slider Styling**: Beautiful range inputs with glow effects
-- **Smooth Scrolling**: Custom scrollbar design
+### Current behavior
 
-## 🚀 Getting Started
+- Five user-controlled inputs: complexity, stability, tension, adaptability, and coherence.
+- Current stage is calculated as the rounded average of those five values mapped to 0–9.
+- Stage descriptions and guidance are static content in data/systemData.ts.
+- Journal entries, reflections, selected domains, and vector scores are saved in localStorage.
+- The app does not call the Python telemetry API.
 
-### Prerequisites
-- Node.js 18+ installed
-- npm or yarn package manager
+The slider scores and stage output are project-defined reflection prompts, not validated psychological or physiological measurements. The app is not a diagnostic or treatment tool. localStorage is not encrypted by this application; do not use it for highly sensitive journal content on a shared device.
 
-### Installation
+## Python telemetry engine: actual behavior
 
-1. **Clone or download the project**
-```bash
-cd luminark-app
-```
+The Python core accepts three numeric inputs on a 0–10 scale:
 
-2. **Install dependencies**
-```bash
-npm install
-```
+- severity
+- turbulence
+- adaptability
 
-3. **Run development server**
-```bash
-npm run dev
-```
+It selects the nearest of nine manually defined centroids using Euclidean distance. It then computes:
 
-4. **Open in browser**
-```
-http://localhost:3000
-```
+- a trap score using severity × turbulence × (1 − adaptability/10) × stage multiplier;
+- a weighted score from severity, turbulence, and inverse adaptability;
+- an alert label using fixed thresholds;
+- a boolean protocol flag derived from that alert label;
+- matches against static signature rules.
 
-### Build for Production
+These are deterministic formulas and manually selected thresholds. The scores are not calibrated probabilities, validated risk estimates, or proven predictions. The API receives caller-supplied numbers; no live grid, HVAC, market, vehicle, organizational, or AI-system data connection is established.
+
+### Adapter limitations
+
+- Grid and HVAC adapters rename and normalize caller-supplied numbers; they do not connect to sensors or control systems.
+- The market analyzer wrapper currently calls an organizational adapter; it does not retrieve market data.
+- The text/AI-safety adapter maps three caller-supplied numeric scores. It does not inspect text, run an AI model, detect harmful content, or verify policy compliance.
+- Consensus is a fixed weighted arithmetic combination of three values, not independent multi-agent consensus.
+- Signature matching uses static rules, not a trained anomaly detector.
+
+## API security
+
+The analysis endpoints now require LUMINARK_V2_API_KEY. For local development only, LUMINARK_V2_ALLOW_INSECURE_LOCAL=true permits requests from loopback addresses. Do not enable that mode on a network-facing host.
+
+Example local run:
 
 ```bash
-npm run build
-npm start
+pip install -r requirements.txt
+LUMINARK_V2_ALLOW_INSECURE_LOCAL=true uvicorn luminark_interfaces.api.main:app --host 127.0.0.1 --port 8000
 ```
 
-## 📁 Project Structure
+Network deployment requires a strong LUMINARK_V2_API_KEY, HTTPS termination, rate limiting, monitoring, and a separate security review.
 
-```
-luminark-app/
-├── app/
-│   ├── layout.tsx          # Root layout with metadata
-│   ├── page.tsx             # Main application component
-│   └── globals.css          # Global styles and animations
-├── components/
-│   ├── InfoButton.tsx       # Tooltip component for contextual help
-│   ├── StageIndex.tsx       # Modal with full stage descriptions
-│   └── ProgressDashboard.tsx # Charts and journal timeline
-├── data/
-│   └── systemData.ts        # All stage, vector, and domain data
-├── package.json
-├── tsconfig.json
-├── tailwind.config.js
-├── postcss.config.js
-├── next.config.js
-└── README.md
-```
+## Tests and evidence
 
-## 🎨 Key Components
+Python unit tests exercise formulas, thresholds, adapters, and output structure. The Next.js build workflow checks compilation. Passing these tests demonstrates software behavior for selected inputs only; it does not validate the underlying framework, stage labels, risk thresholds, or real-world outcomes.
 
-### Main Assessment Flow
+## Commercial assessment
 
-1. **Welcome Screen**: Introduction to the system
-2. **Time Orientation**: Past vs Future focus with detailed reflection
-3. **Life Focus Areas**: Multi-select domains across 5 categories
-4. **Vector Assessment**: 5 slider-based assessments with real-time stage calculation
-5. **Journal Entry**: Weekly/monthly journaling with current stage context
-6. **Completion**: Summary and access to progress dashboard
-
-### Data Models
-
-#### Journal Entry
-```typescript
-interface JournalEntry {
-  id: string;
-  date: Date;
-  stage: number;              // 0-9
-  vectors: Record<string, number>;
-  reflections: {
-    pastReflection: string;
-    futureVision: string;
-  };
-  selectedDomains: string[];
-  journalText: string;
-}
-```
-
-## 🎯 Assessment Methodology
-
-### The 5 Vectors
-
-1. **System Complexity (C)**: Number of variables and interdependencies
-2. **Foundational Stability (S)**: Structural integrity and predictability
-3. **Internal Tension (T)**: Pressure for change (potential energy)
-4. **Fluid Adaptability (A)**: Capacity to change without collapse
-5. **Pattern Coherence (H)**: Alignment of actions with values
-
-### Stage Calculation
-
-The current stage (0-9) is calculated by:
-1. Averaging all 5 vector scores
-2. Normalizing to 0-9 range
-3. Rounding to nearest integer stage
-
-### The 10 Archetypal Stages
-
-- **Stage 0 - Plenara**: Pure potential before form
-- **Stage 1 - Pulse**: First stirring of energy
-- **Stage 2 - Duality**: Encountering the other
-- **Stage 3 - Expression**: Creative breakthrough
-- **Stage 4 - Foundation**: Building structure
-- **Stage 5 - Threshold**: The crisis point
-- **Stage 6 - Integration**: High performance flow
-- **Stage 7 - Dissolution**: Deep purification
-- **Stage 8 - Unity Peak**: Maximum achievement (The Trap)
-- **Stage 9 - Release**: Wisdom and letting go
-
-## 📊 Progress Tracking Features
-
-### Visual Charts
-- **Line Chart**: Stage progression over time
-- **Radar Chart**: Current vector distribution
-- **Statistics**: Total entries, average stage, recent changes
-
-### Journal Timeline
-- Chronological display of all entries
-- Full context preservation (domains, reflections, journal text)
-- Date formatting and categorization
-
-## 🎨 Customization
-
-### Color Scheme
-Edit `tailwind.config.js` to modify the Luminark color palette:
-
-```javascript
-colors: {
-  luminark: {
-    bg: '#0a0a0f',
-    card: '#15151f',
-    border: '#2a2a3f',
-    accent: '#4a4aff',
-    text: '#e0e0ff',
-    muted: '#8080a0',
-  },
-}
-```
-
-### Stage Descriptions
-Modify `/data/systemData.ts` to customize stage descriptions, guidance, or add new stages.
-
-### Life Domains
-Add or modify life domain categories in `/data/systemData.ts` under `LIFE_VECTORS`.
-
-## 🔒 Data Privacy
-
-- **All data stored locally**: No server communication
-- **LocalStorage only**: Data never leaves your browser
-- **User-controlled**: Clear browser data to reset completely
-- **No tracking**: No analytics or external services
-
-## 📱 Responsive Design
-
-- **Mobile-first**: Optimized for touch interfaces
-- **Tablet support**: Adjusted layouts for medium screens
-- **Desktop enhanced**: Full-width charts and multi-column layouts
-
-## 🚀 Deployment
-
-### Deploy to Vercel (Recommended)
-
-1. **Push to GitHub**
-```bash
-git init
-git add .
-git commit -m "Initial Luminark v2.0"
-git remote add origin YOUR_REPO_URL
-git push -u origin main
-```
-
-2. **Connect to Vercel**
-- Go to [vercel.com](https://vercel.com)
-- Import your GitHub repository
-- Configure build settings (auto-detected for Next.js)
-- Deploy
-
-### Deploy to Netlify
-
-1. **Build the static export**
-```bash
-npm run build
-```
-
-2. **Deploy the `.next` folder** to Netlify
-
-### Environment Variables
-
-No environment variables required - this is a client-side only application.
-
-## 🛠️ Development
-
-### Technologies Used
-- **Next.js 14**: React framework with App Router
-- **TypeScript**: Type-safe development
-- **Tailwind CSS**: Utility-first styling
-- **Framer Motion**: Animation library
-- **Recharts**: Chart components
-- **date-fns**: Date formatting
-
-### Code Quality
-- TypeScript strict mode enabled
-- ESLint configured
-- Component-based architecture
-- Responsive design patterns
-
-## 📝 Future Enhancement Ideas
-
-- [ ] Export journal entries to PDF/Markdown
-- [ ] Custom stage creation
-- [ ] Multi-user support with authentication
-- [ ] Cloud sync (optional)
-- [ ] Deep Agent AI integration for personalized guidance
-- [ ] Shareable assessment results
-- [ ] Stage transition notifications
-- [ ] Comparative analysis between entries
-
-## 🤝 Contributing
-
-This is a personal assessment tool. Feel free to fork and customize for your own use.
-
-## 📄 License
-
-MIT License - Feel free to use and modify for personal or commercial projects.
-
-## 🙏 Acknowledgments
-
-Based on the original Luminark system design with enhancements for deeper self-reflection and progress tracking.
-
----
-
-**Built with intention. Transform with awareness.**
-
-For questions or support, please open an issue on GitHub.
+The frontend is a functioning self-reflection/journaling prototype. The Python package is a separate rule-based telemetry prototype. Neither is a validated operational decision product. Before commercial development, choose which product direction to pursue, reconcile the two models, establish the intended stage mapping, and test against independently sourced domain data.
