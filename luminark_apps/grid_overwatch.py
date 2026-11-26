@@ -1,3 +1,8 @@
+"""Grid telemetry wrapper prototype.
+
+Inputs are supplied by the caller and mapped to the core telemetry schema.
+This module does not connect to grid sensors, SCADA, or control systems.
+"""
 from __future__ import annotations
 
 from luminark_adapters import from_grid
