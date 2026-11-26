@@ -109,6 +109,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen p-4 md:p-8">
+      <div role="note" className="max-w-6xl mx-auto mb-6 rounded-lg border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-xs leading-relaxed text-amber-100">
+        <strong>SELF-REFLECTION PROTOTYPE — NOT A DIAGNOSTIC TOOL.</strong> The displayed stage is calculated from the average of five user-entered sliders; it is not a validated psychological or physiological measurement. Journal entries are stored in this browser's localStorage and are not encrypted by this app. Avoid entering sensitive information on shared devices.
+      </div>
       {/* Header */}
       <motion.header 
         initial={{ opacity: 0, y: -20 }}
