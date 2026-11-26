@@ -1,3 +1,9 @@
+"""Organizational-score wrapper retained under a historical name.
+
+This function calls the organizational adapter with caller-supplied numbers.
+It does not retrieve market prices, market feeds, trading data, or financial
+news and should not be represented as a market forecasting service.
+"""
 from __future__ import annotations
 
 from luminark_adapters import from_org
