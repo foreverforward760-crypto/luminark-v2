@@ -1,3 +1,9 @@
+"""FastAPI interface for the experimental LUMINARK telemetry prototype.
+
+The API accepts caller-supplied numeric telemetry. It has no live data
+connectors, persistent database, or independently validated risk model.
+Analysis endpoints require API-key or explicit loopback-only development mode.
+"""
 from __future__ import annotations
 
 import os
