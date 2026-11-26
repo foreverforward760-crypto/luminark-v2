@@ -1,3 +1,9 @@
+"""Numeric score adapter only; this module does not analyze text or run AI.
+
+The caller supplies MAAT, Guardian-risk, and policy-headroom numbers. The
+adapter maps those numbers to the telemetry schema using fixed arithmetic.
+It is not an AI safety detector, moderation model, or policy-compliance test.
+"""
 from __future__ import annotations
 
 from .base import normalize_telemetry
