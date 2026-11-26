@@ -384,7 +384,7 @@ export default function Home() {
                     {currentStage}
                   </div>
                   <div className="text-xs text-luminark-muted">
-                    {ARCHETYPAL_STAGES[currentStage].name}
+                    {ARCHETYPAL_STAGES[currentStage].canonicalName} · {ARCHETYPAL_STAGES[currentStage].name}
                   </div>
                 </div>
               </div>
@@ -436,7 +436,7 @@ export default function Home() {
 
               <div className="bg-luminark-accent/10 border border-luminark-accent rounded-xl p-6 mb-6">
                 <h3 className="text-xl font-semibold text-luminark-accent mb-3">
-                  Stage {currentStage}: {ARCHETYPAL_STAGES[currentStage].name}
+                  Stage {currentStage}: {ARCHETYPAL_STAGES[currentStage].canonicalName} — {ARCHETYPAL_STAGES[currentStage].name}
                 </h3>
                 <p className="text-sm text-luminark-text mb-3">
                   {ARCHETYPAL_STAGES[currentStage].fullDescription}
@@ -482,7 +482,7 @@ export default function Home() {
                     {currentStage}
                   </div>
                   <div className="text-xl text-luminark-text font-semibold">
-                    {ARCHETYPAL_STAGES[currentStage].name} - {ARCHETYPAL_STAGES[currentStage].subtitle}
+                    {ARCHETYPAL_STAGES[currentStage].canonicalName} — {ARCHETYPAL_STAGES[currentStage].name} · {ARCHETYPAL_STAGES[currentStage].subtitle}
                   </div>
                 </div>
               </div>
