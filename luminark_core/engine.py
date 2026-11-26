@@ -1,3 +1,9 @@
+"""Rule-based telemetry scoring prototype.
+
+The engine combines nearest-centroid stage selection, fixed weighted scoring,
+static signature rules, and threshold-based alert labels. It does not collect
+live telemetry or produce validated risk probabilities or operational advice.
+"""
 from __future__ import annotations
 
 from typing import Dict
