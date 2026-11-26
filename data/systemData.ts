@@ -1,6 +1,7 @@
 export const ARCHETYPAL_STAGES = [
   {
     id: 0,
+    canonicalName: "PLENARA",
     name: "PLENARA",
     subtitle: "The Void",
     description: "Pure potential before form. The pause before the breath.",
@@ -9,6 +10,7 @@ export const ARCHETYPAL_STAGES = [
   },
   {
     id: 1,
+    canonicalName: "SPARK OF NAVIGATION",
     name: "PULSE",
     subtitle: "Emergence",
     description: "The first stirring of energy. Directionless but alive.",
@@ -17,6 +19,7 @@ export const ARCHETYPAL_STAGES = [
   },
   {
     id: 2,
+    canonicalName: "FORGE OF POLARITY",
     name: "DUALITY",
     subtitle: "The Split",
     description: "Encountering the other. Me vs You. Good vs Bad. The birth of conflict and relationship.",
@@ -25,6 +28,7 @@ export const ARCHETYPAL_STAGES = [
   },
   {
     id: 3,
+    canonicalName: "ENGINE OF EXPRESSION",
     name: "EXPRESSION",
     subtitle: "The Spark",
     description: "Creative chaotic breakthrough. Messy, intense, vital. The artist's chaos.",
@@ -33,6 +37,7 @@ export const ARCHETYPAL_STAGES = [
   },
   {
     id: 4,
+    canonicalName: "CRUCIBLE OF EQUILIBRIUM",
     name: "FOUNDATION",
     subtitle: "The Square",
     description: "Building structure. Routine, discipline, safety. The healthy plateau.",
@@ -41,6 +46,7 @@ export const ARCHETYPAL_STAGES = [
   },
   {
     id: 5,
+    canonicalName: "DYNAMO OF WILL",
     name: "THRESHOLD",
     subtitle: "The Crisis",
     description: "The point of no return. Stability fails, tension spikes. You must choose to evolve or regress.",
@@ -49,6 +55,7 @@ export const ARCHETYPAL_STAGES = [
   },
   {
     id: 6,
+    canonicalName: "NEXUS OF HARMONY",
     name: "INTEGRATION",
     subtitle: "Flow",
     description: "High performance. Everything works. Harmony between structure and flow.",
@@ -57,6 +64,7 @@ export const ARCHETYPAL_STAGES = [
   },
   {
     id: 7,
+    canonicalName: "LENS OF DISTILLATION",
     name: "DISSOLUTION",
     subtitle: "The Alchemy",
     description: "Deep purification. Stripping away the non-essential. Painful but necessary.",
@@ -65,6 +73,7 @@ export const ARCHETYPAL_STAGES = [
   },
   {
     id: 8,
+    canonicalName: "VESSEL OF GROUNDING",
     name: "UNITY PEAK",
     subtitle: "The Trap",
     description: "Maximum achievement. The danger of claiming 'I Have Arrived.' Rigidity here equals death.",
@@ -73,6 +82,7 @@ export const ARCHETYPAL_STAGES = [
   },
   {
     id: 9,
+    canonicalName: "TRANSPARENCY OF THE GUIDE",
     name: "RELEASE",
     subtitle: "Transparency",
     description: "Wisdom without attachment. Leading by letting go. The return to the start.",
