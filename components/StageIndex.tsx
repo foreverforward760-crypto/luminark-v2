@@ -57,10 +57,10 @@ export default function StageIndex({ onClose }: StageIndexProps) {
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
                     <h3 className="text-xl font-bold text-luminark-text">
-                      {stage.name}
+                      {stage.canonicalName}
                     </h3>
                     <span className="text-sm text-luminark-muted italic">
-                      {stage.subtitle}
+                      {stage.name} · {stage.subtitle}
                     </span>
                   </div>
                   <p className="text-luminark-text mb-3 font-medium">
