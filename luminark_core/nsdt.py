@@ -1,3 +1,11 @@
+"""Domain-specific 9-label telemetry classifier prototype.
+
+This module uses three caller-supplied numeric values and fixed centroids.
+Its NOMINAL-to-TERMINAL labels are not the frontend's canonical 0-9 SAP
+stage names. The current implementation has no explicit Stage 0 or
+return-to-zero transition. Thresholds and centroids are not empirically
+calibrated or validated for any operational domain.
+"""
 from __future__ import annotations
 
 from dataclasses import dataclass
